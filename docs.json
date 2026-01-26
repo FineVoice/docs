@@ -38,17 +38,13 @@
           {
             "group": "Pricing",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "essentials/settings"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Resources",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "guides/resources/untitled-page"
             ]
           },
           {
