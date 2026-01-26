@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://voiceai.fineshare.com",
+      "url": "https://voiceai.fineshare.net",
       "description": "OVC"
     }
   ],
@@ -136,3 +136,4 @@
     }
   }
 }
+
