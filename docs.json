@@ -103,7 +103,7 @@
     "primary": {
       "type": "button",
       "label": "Go to FineVoice",
-      "href": "https://finevoice.ai/usercenter"
+      "href": "https://finevoice.ai/"
     }
   },
   "contextual": {
