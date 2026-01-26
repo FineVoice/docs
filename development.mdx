@@ -1,94 +1,40 @@
 ---
-title: 'Development'
-description: 'Preview changes locally to update your docs'
+title: "Changelog"
+description: "Stay tuned for the latest features and updates from FineVoice!"
 ---
 
-<Info>
-  **Prerequisites**:
-  - Node.js version 19 or higher
-  - A docs repository with a `docs.json` file
-</Info>
+<Update label="10/10/2025">
+  A new update that enhances stability, adds Text to Speech character pack purchases, and improves the Blog and Guide experience.
 
-Follow these steps to install and run Mintlify on your operating system.
+  - Improved overall stability and performance with multiple bug fixes.
+  - Added support for Text-to-Speech character pack purchases.
+  - Fixed scroll-following behavior in the Blog and Guide side navigation.
+  - Resolved issues with recommended content display in Blog and Guide sections.
+</Update>
 
-<Steps>
-<Step title="Install the Mintlify CLI">
+<Update label="25/09/2025">
+  FineVoice 3.0 (beta) is here with a brand-new upgrade! Experience faster text-to-speech generation and expressive Emotion Tags for more natural results. With the all-new AI Voice Design, you can create and customize unique voices in just seconds. Now offering 1,500+ AI voices across 154 languages, FineVoice empowers creators in media, entertainment, education, and business to produce diverse and personalized voices effortlessly.
 
-```bash
-npm i -g mint
-```
-</Step>
+  - Text Emotion Control: Fine-tune emotional expression for storytelling, advertising, or voiceovers—making your content truly engaging and authentic.
+  - Royalty Free Sound Effects: Generate unique, copyright-free sound effects from text and video input for any project-enjoy complete creative freedom with no licensing concerns.
+  - Instant Voice Cloning: Clone any voice in just seconds for use in text-to-speech or voice transformation, streamlining your creative process.
+  - Custom AI Voice Design: Create personalized AI voices and generate unique voiceovers for your content, characters,or brand-enjoy maximum flexibility and creative control.
+  - Practical Tools & Solutions: Access a versatile suite of advanced AI voice tools — including an AI Voice Changer, AI Voice Enhancer, Speech to Text, and AI Podcast Generator — delivering simple, efficient, and highly adaptable solutions for any project.
+  - 154+ Multi-Language Support: Create custom Al voices in 154 global languages and accents, expanding your reach to diverse audiences.
+</Update>
 
-<Step title="Preview locally">
+<Update label="03/01/2025">
+  The update brings an improved UI, bug fixes, and the new Video to Sound Effects feature.
 
-Navigate to your docs directory where your `docs.json` file is located, and run the following command:
+  - Improve UI: The interface is optimized and upgraded to bring a better experience.
+  - Fix Bug: Some bugs on certain features have been fixed.
+  - Add New Feature: FineVoice Video to Sound Effects feature is now live.
+</Update>
 
-```bash
-mint dev
-```
+<Update label="08/20/2024">
+  The latest update introduces credits for rewards, the new FineVoice TTS V2 model for more natural and expressive voices, additional commercial voices, and various bug fixes to enhance the user experience.
+</Update>
 
-A local preview of your documentation will be available at `http://localhost:3000`.
-
-</Step>
-</Steps>
-
-## Custom ports
-
-By default, Mintlify uses port 3000. You can customize the port Mintlify runs on by using the `--port` flag. For example, to run Mintlify on port 3333, use this command:
-
-```bash
-mint dev --port 3333
-```
-
-If you attempt to run Mintlify on a port that's already in use, it will use the next available port:
-
-```md
-Port 3000 is already in use. Trying 3001 instead.
-```
-
-## Mintlify versions
-
-Please note that each CLI release is associated with a specific version of Mintlify. If your local preview does not align with the production version, please update the CLI:
-
-```bash
-npm mint update
-```
-
-## Validating links
-
-The CLI can assist with validating links in your documentation. To identify any broken links, use the following command:
-
-```bash
-mint broken-links
-```
-
-## Deployment
-
-If the deployment is successful, you should see the following:
-
-<Frame>
-  <img src="/images/checks-passed.png" alt="Screenshot of a deployment confirmation message that says All checks have passed." style={{ borderRadius: '0.5rem' }} />
-</Frame>
-
-## Code formatting
-
-We suggest using extensions on your IDE to recognize and format MDX. If you're a VSCode user, consider the [MDX VSCode extension](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx) for syntax highlighting, and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) for code formatting.
-
-## Troubleshooting
-
-<AccordionGroup>
-  <Accordion title='Error: Could not load the "sharp" module using the darwin-arm64 runtime'>
-
-    This may be due to an outdated version of node. Try the following:
-    1. Remove the currently-installed version of the CLI: `npm remove -g mint`
-    2. Upgrade to Node v19 or higher.
-    3. Reinstall the CLI: `npm i -g mint`
-  </Accordion>
-
-  <Accordion title="Issue: Encountering an unknown error">
-  
-    Solution: Go to the root of your device and delete the `~/.mintlify` folder. Then run `mint dev` again.
-  </Accordion>
-</AccordionGroup>
-
-Curious about what changed in the latest CLI version? Check out the [CLI changelog](https://www.npmjs.com/package/mintlify?activeTab=versions).
+<Update label="01/11/2024">
+  In this update, FineVoice introduces enhanced natural voices, expanded AI voice models, improved AI voice changing and cloning, faster transcription, and seamless audio extraction.
+</Update>
