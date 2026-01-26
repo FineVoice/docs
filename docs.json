@@ -53,18 +53,36 @@
         "tab": "API reference",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Websocket Progress",
             "pages": [
-              "api-reference/introduction"
+              "api-reference/endpoint/createaudiochanger"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Text to Speech",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "api-reference/endpoint/changeprogress"
+            ]
+          },
+          {
+            "group": "AI Voices",
+            "pages": [
+              "api-reference/ai-voices/untitled-page",
+              "api-reference/endpoint/changeaudiofile"
+            ]
+          },
+          {
+            "group": "AI Voice Cloning",
+            "pages": [
+              "api-reference/endpoint/trainmodel",
+              "api-reference/endpoint/listmodels",
+              "api-reference/endpoint/delete"
+            ]
+          },
+          {
+            "group": "API documentation",
+            "pages": [
+              "api-reference/introduction"
             ]
           }
         ]
