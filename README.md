@@ -1,43 +1,86 @@
-# Mintlify Starter Kit
+# FineVoice Kit
 
-Use the starter kit to get your docs deployed and ready to customize.
+**FineVoice Kit** is a developer-friendly toolkit built on top of the **FineVoice API**, designed to help developers easily integrate AI voice capabilities into their applications.
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+With FineVoice Kit, you can generate natural-sounding speech, clone custom voices, transform voices, and convert speech to text using a simple and scalable REST API.
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+🌐 API Base URL: https://api.finevoice.ai/
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
+## 🚀 Features
 
-## Development
+- 🎙️ High-quality AI Text-to-Speech (TTS)
+- 🧬 Custom voice cloning
+- 🎭 Voice transformation and effects
+- 📝 Speech-to-Text (STT)
+- 🌍 Support for multiple languages and voices
+- 🔗 Simple RESTful API, compatible with any programming language
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
+## 📦 Installation
 
-```
-npm i -g mint
-```
-
-Run the following command at the root of your documentation, where your `docs.json` is located:
+Clone the repository:
 
 ```
-mint dev
+git clone https://github.com/FineVoice/docs.git
+cd finevoice-kit
 ```
 
-View your local preview at `http://localhost:3000`.
+Install dependencies:
 
-## Publishing changes
+```
+npm install        # Node.js
+# or
+pip install -r requirements.txt   # Python
+```
 
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
+---
 
-## Need help?
+## 🔑 Authentication
 
-### Troubleshooting
+To use the FineVoice API, you need an **API Key**.
 
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
+Create your API key from the FineVoice dashboard and store it securely as an environment variable:
 
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+```
+export FINEVOICE_API_KEY=your_api_key_here
+```
+
+Quick Get your API Key: https://api.finevoice.ai/quickstart
+
+## ⚡ Quick Start
+
+**Your First TTS Request**: https://api.finevoice.ai/quickstart
+
+## 📚 API Overview
+
+| Feature                     | Endpoint             | Description                           |
+| :-------------------------- | :------------------- | :------------------------------------ |
+| Text-to-Speech              | `/v1/text_to_speech` | Convert text into AI-generated speech |
+| Voice Cloning               | `/v1/voice_clone`    | Create a custom voice model           |
+| Voice Changer (Coming Soon) | `/v1/voice_changer`  | Apply voice styles or effects         |
+| Sound Effects (Coming Soon) | `/v1/sound_effect`   | Generate or apply sound effects       |
+
+## ⚙️ Configuration
+
+We recommend using a `.env` file to manage sensitive configuration:
+
+```
+FINEVOICE_API_KEY=your_api_key_here
+```
+
+## 🛡️ Best Practices
+
+- Never expose your API key in client-side code
+- Handle API errors and rate limits properly
+- Follow FineVoice’s usage policies for voice cloning and commercial use
+
+## 📖 Documentation
+
+Full API documentation is available at:\
+👉 https://api.finevoice.ai/
+
+## 💬 Support
+
+If you have questions or need assistance:
+
+- 📧 Email: [support@fineshare.ai](mailto:support@fineshare.ai)
+- 🌐 Website: https://finevoice.ai/
