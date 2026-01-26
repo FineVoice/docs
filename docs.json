@@ -14,12 +14,12 @@
         {
           "anchor": "Documentation",
           "icon": "book-open-cover",
-          "href": "https://mintlify.com/docs"
+          "href": "https://finevoice.ai/guide"
         },
         {
           "anchor": "Blog",
           "icon": "newspaper",
-          "href": "https://mintlify.com/blog"
+          "href": "https://finevoice.ai/blog"
         }
       ]
     },
