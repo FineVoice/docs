@@ -53,9 +53,9 @@
         "tab": "API reference",
         "groups": [
           {
-            "group": "Websocket Progress",
+            "group": "API documentation",
             "pages": [
-              "api-reference/endpoint/createaudiochanger"
+              "api-reference/introduction"
             ]
           },
           {
@@ -80,9 +80,9 @@
             ]
           },
           {
-            "group": "API documentation",
+            "group": "Websocket Progress",
             "pages": [
-              "api-reference/introduction"
+              "api-reference/endpoint/createaudiochanger"
             ]
           }
         ]
