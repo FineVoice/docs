@@ -7,7 +7,7 @@
   },
     "servers": [
     {
-      "url": "https://upload.fineshare.com",
+      "url": "https://upload.fineshare.net",
       "description": "Upload endpoint 1"
     },
 	{
@@ -142,3 +142,4 @@
     }
   }
 }
+
