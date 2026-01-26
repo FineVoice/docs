@@ -1,80 +1,200 @@
 ---
 title: "Quickstart"
-description: "Start building awesome documentation in minutes"
+description: "Generate your first AI voice with FineVoice"
 ---
 
-## Get started in three steps
+## Overview
 
-Get your documentation site running locally and make your first customization.
+This guide will walk you through generating your first text-to-speech audio with FineVoice. By the end, you’ll have converted text into natural-sounding speech using our API.
+
+## **\
+Quick Get your API Key**
 
 ### Step 1: Set up your local environment
 
 <AccordionGroup>
-  <Accordion icon="copy" title="Clone your docs locally">
-    During the onboarding process, you created a GitHub repository with your docs content if you didn't already have one. You can find a link to this repository in your [dashboard](https://dashboard.mintlify.com).
-    
-    To clone the repository locally so that you can make and preview changes to your docs, follow the [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) guide in the GitHub docs.
+  <Accordion title="Create a FineVoice account" icon="copy">
+    **1. Visit the FineVoice Website**
+
+    [**Open FineVoice**](https://finevoice.fineshare.com/) on your browser, and you can find the “Sign up” / “Sign in” button in the top right corner.
+
+    **2. Choose a Sign up or Sign in Method**
+
+    - **Method 1: Register/Login with a Google Account **
+
+      Click “Sign up” or “Sign in” and choose “Continue with Google”. Then, select your Google account. If you are not logged in, enter your password, click “Continue”, and you will successfully log in to FineVoice.
+    - **Method 2: Register/Login with an Apple Accoun**
+
+      On the “Sign up” or “Sign in” page, click “Continue with Apple”. Enter your email address or phone number and click “Continue”. Then, enter your password and click “Sign In”.
+    - **Method 3: Register/Login with Email**
+
+      On the “Sign up” or “Sign in” page, click “Continue with Email”. Then, enter your email address and password and click “Sign up” or “Sign in”. You will receive a verification email in your mailbox. Find the mail and click the verification link to complete registration.
+
+    **3. Log in to your account and navigate to the usercenter**
   </Accordion>
-  <Accordion icon="rectangle-terminal" title="Start the preview server">
-    1. Install the Mintlify CLI: `npm i -g mint`
-    2. Navigate to your docs directory and run: `mint dev`
-    3. Open `http://localhost:3000` to see your docs live!
-    
-    <Tip>Your preview updates automatically as you edit files.</Tip>
-  </Accordion>
-</AccordionGroup>
+  <Accordion title="Get your API key" icon="rectangle-terminal">
+    1.  Go to https://finevoice.fineshare.com/usercenter
 
-### Step 2: Deploy your changes
+        
+    1.  Navigate to the API Tokens
+    1.  Generate Secret Key
 
-<AccordionGroup>
-  <Accordion icon="github" title="Install our GitHub app">
-    Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app).
-    
-    Our GitHub app automatically deploys your changes to your docs site, so you don't need to manage deployments yourself.
-</Accordion>
-<Accordion icon="palette" title="Update your site name and colors">
-    For a first change, let's update the name and colors of your docs site.
-
-    1. Open `docs.json` in your editor.
-    2. Change the `"name"` field to your project name.
-    3. Update the `"colors"` to match your brand.
-    4. Save and see your changes instantly at `http://localhost:3000`.
-
-    <Tip>Try changing the primary color to see an immediate difference!</Tip>
+    <Tip>
+      Keep your API key secret! Never commit it to version control or share it publicly.
+    </Tip>
   </Accordion>
 </AccordionGroup>
 
-### Step 3: Go live
+## **Your First TTS Request**
 
-<Accordion icon="rocket" title="Publish your docs">
-  1. Commit and push your changes.
-  2. Your docs will update and be live in moments!
-</Accordion>
+Let’s create your first audio file from text.
 
-## Next steps
+<Tabs>
+  <Tab title="cURL">
+    
 
-Now that you have your docs running, explore these key features:
+    <Steps>
+      <Step title="Set your API key">
+        Store your API key as an environment variable (recommended approach):
 
-<CardGroup cols={2}>
+        ```shellscript
+        export FINEVOICE_API_KEY="replace_me"
+        ```
+      </Step>
+      <Step title="Make the TTS request">
+        > The following example uses the default voice. To use a different voice, change the `voice` parameter and provide the model name from FineVoice. You can retrieve detailed information about available voices using the methods below. [**[View Voice API]**](https://fvdocs.fineshare.com/api-reference/endpoint/getvoicedetail)
 
-<Card title="Write Content" icon="pen-to-square" href="/essentials/markdown">
-  Learn MDX syntax and start writing your documentation.
-</Card>
+        Run this **cURL** command to generate your first voice:
 
-<Card title="Customize style" icon="palette" href="/essentials/settings">
-  Make your docs match your brand perfectly.
-</Card>
+        ```shellscript
+        curl -X POST https://converter.fineshare.net/api/fsmstexttospeech \
+          -H "Authorization: Bearer $FINEVOICE_API_KEY" \
+          -H "Content-Type: application/json" \
+          -d '{
+          "Engine": "v7",
+          "AppId": "107",
+          "FeatureId": "22",
+          "speech": "[happy] Hi, welcome to today’s video! In this episode, [breathe] I’ll show you some practical voice generation tips that can make your audio projects a lot easier and more creative. [clear_throat] Stick around, and let’s jump right in!",
+          "voice": "james",
+          "platform": "web",
+          "Parameter": {
+            "Speed": 1.0,
+            "LanguageCode": "en-US",
+            "Pitch": 0.0
+          }
+        }'\
+        ```
 
-<Card title="Add code examples" icon="square-code" href="/essentials/code">
-  Include syntax-highlighted code blocks.
-</Card>
+        Windows Command Prompt:
 
-<Card title="API documentation" icon="code" href="/api-reference/introduction">
-  Auto-generate API docs from OpenAPI specs.
-</Card>
+        ```shellscript
+        curl -X POST https://converter.fineshare.net/api/fsmstexttospeech -H "Authorization: Bearer %FINEVOICE_API_KEY%" -H "Content-Type: application/json" -d "{\"Engine\":\"v7\",\"AppId\":\"107\",\"FeatureId\":\"22\",\"speech\":\"[happy] Hi, welcome to today’s video! In this episode, [breathe] I’ll show you some practical voice generation tips that can make your audio projects a lot easier and more creative. [clear_throat] Stick around, and let’s jump right in!\",\"voice\":\"james\",\"platform\":\"web\",\"Parameter\":{\"Speed\":1.0,\"LanguageCode\":\"en-US\",\"Pitch\":0.0}}"
+        ```
+      </Step>
+      <Step title="Get the Audio Download URL">
+        The response returns a unique `uuid` that identifies the generated audio task.\
+        Use this `uuid` in the subsequent request to retrieve the audio download URL.
 
-</CardGroup>
+        ```shellscript
+        {
+          "uuid": "6d2fec0a-0983-4b3f-b3f8-6038d12187ce",
+          "available_count": 298825,
+          "wordBoundaries": [],
+          "error": {
+            "code": "0001",
+            "message": null
+          }
+        }
+        ```
 
-<Note>
-  **Need help?** See our [full documentation](https://mintlify.com/docs) or join our [community](https://mintlify.com/community).
-</Note>
+        Use the following request to check the file generation status and retrieve the audio download URL:
+
+        ```shellscript
+        curl -X GET https://voiceai.fineshare.net/api/checkfilechangestatus/{uuid}
+        ```
+
+        Replace `{uuid}` with the `uuid` returned from the text-to-speech request.\
+        When the audio file is ready, the response will include the audio download URL.
+
+        **Response Example:**
+
+        ```json
+        {
+            "uuid": "6d2fec0a-0983-4b3f-b3f8-6038d12187ce",
+            "client": null,
+            "status": 3,
+            "url": "https://dlaudio.fineshare.net/ovc/6d2fec0a-0983-4b3f-b3f8-6038d12187ce.mp3",
+            "coverUrl": null,
+            "duration": 16,
+            "title": "welcome to today’s video",
+            "error": {
+                "code": "0001",
+                "message": null
+            }
+        }
+        ```
+      </Step>
+      <Step title="Download the Audio File">
+        Run the following cURL command to download the audio file:
+
+        ```shellscript
+        curl -L -o output.mp3 https://dlaudio.fineshare.net/ovc/6d2fec0a-0983-4b3f-b3f8-6038d12187ce.mp3
+        ```
+      </Step>
+      <Step title="Play the Downloaded Audio">
+        The audio has been saved as **output.mp3.** You can play it by:
+
+        - Double-clicking the file or opening it in any media player
+        - Or using the command line:
+
+        ```shellscript
+        # On macOS
+        afplay output.mp3
+        
+        # On Linux
+        mpg123 output.mp3
+        
+        # On Windows
+        start output.mp3
+        ```
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+# **List AI Voices**
+
+Explore all AI voices you can use for text-to-speech generation.
+
+<Tabs>
+  <Tab title="cURL">
+    
+
+    <Steps>
+      <Step title="Set your API key">
+        Store your API key as an environment variable (recommended approach):
+
+        ```shellscript
+        export FINEVOICE_API_KEY="replace_me"
+        ```
+      </Step>
+      <Step title="List Available Voice Models">
+        Retrieve a paginated list of available AI voice models with filters for gender, language, page number, and page size. This API helps you browse and select voices for text-to-speech or voice conversion tasks. [**Check out the API reference here**](https://fvdocs.fineshare.com/api-reference/introduction).
+
+        ```shellscript
+        curl -X GET "https://converter.fineshare.net/api/pagevoices?v=v2&gender=all&language=en-US&page=1&limit=10" \
+          -H "Authorization: Bearer $FINEVOICE_API_KEY" \
+          -o "pagevoices.json"
+        ```
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## **Support**
+
+Need help? Check out these resources:
+
+- [**API Reference**](https://fvdocs.fineshare.com/api-reference/introduction) - Complete API documentation
+- [**Discord Community**](https://discord.com/invite/HquSyU4Dy8) - Get help from the commun**i**ty
+- [**Support Email**](mailto:support@fineshare.ai) - Contact our support team
