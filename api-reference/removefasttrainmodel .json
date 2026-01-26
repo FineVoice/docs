@@ -7,7 +7,7 @@
   },
    "servers": [
     {
-      "url": "https://models.fineshare.com",
+      "url": "https://models.fineshare.net",
       "description": "Models"
     }
   ],
@@ -138,3 +138,4 @@
     }
   }
 }
+
