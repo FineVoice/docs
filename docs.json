@@ -90,8 +90,8 @@
     ]
   },
   "logo": {
-    "light": "/images/finevoice-logo-rounded-256.png",
-    "dark": "/images/finevoice-logo-rounded-256.png"
+    "light": "/images/finevoice-svg-black.svg",
+    "dark": "/images/finevoice-svg-light.svg"
   },
   "navbar": {
     "links": [
