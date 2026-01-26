@@ -97,13 +97,13 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@fineshare.ai"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Go to FineVoice",
+      "href": "https://finevoice.ai/usercenter"
     }
   },
   "contextual": {
@@ -120,9 +120,9 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/finevoice_ai",
+      "github": "https://github.com/FineVoice",
+      "linkedin": "https://linkedin.com/company/fineshare"
     }
   }
 }
