@@ -1,152 +1,83 @@
 {
-  "openapi": "3.1.0",
+  "openapi": "3.0.1",
   "info": {
-    "title": "OpenAPI Plant Store",
-    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
-    "license": {
-      "name": "MIT"
-    },
+    "title": "Text-to-Speech",
+    "description": "API for converting text to speech using FSMSTextToSpeech.",
     "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "http://sandbox.mintlify.com"
-    }
-  ],
-  "security": [
-    {
-      "bearerAuth": []
+      "url": "https://converter.fineshare.com",
+      "description": "Voices"
     }
   ],
   "paths": {
-    "/plants": {
-      "get": {
-        "description": "Returns all plants from the system that the user has access to",
+    "/api/fsmstexttospeech": {
+      "post": {
+        "tags": [
+          "Text-to-Speech"
+        ],
+        "summary": "Converts text to speech using specified parameters.",
+        "operationId": "FSMSTextToSpeech",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TTSReqData"
+              }
+            }
+          }
+        },
         "parameters": [
           {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of results to return",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
+              "type": "string"
+            },
+            "description": "Bearer token for authentication."
           }
         ],
         "responses": {
           "200": {
-            "description": "Plant response",
+            "description": "Successfully processed the text-to-speech request.",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Plant"
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Text-to-speech processing successful."
+                    }
                   }
                 }
               }
             }
           },
           "400": {
-            "description": "Unexpected error",
+            "description": "Invalid input data.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "description": "Creates a new plant in the store",
-        "requestBody": {
-          "description": "Plant to add to the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewPlant"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Plant"
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Bad Request"
+                    }
+                  }
                 }
               }
             }
           },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plants/{id}": {
-      "delete": {
-        "description": "Deletes a single plant based on the ID supplied",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "ID of plant to delete",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Plant deleted",
-            "content": {}
+          "401": {
+            "description": "Unauthorized access."
           },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "webhooks": {
-    "/plant/webhook": {
-      "post": {
-        "description": "Information about a new plant added to the store",
-        "requestBody": {
-          "description": "Plant added to the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewPlant"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Return a 200 status to indicate that the data was received successfully"
+          "500": {
+            "description": "Internal server error."
           }
         }
       }
@@ -154,63 +85,60 @@
   },
   "components": {
     "schemas": {
-      "Plant": {
-        "required": [
-          "name"
-        ],
+      "TTSReqData": {
         "type": "object",
         "properties": {
-          "name": {
-            "description": "The name of the plant",
-            "type": "string"
+          "Engine": {
+            "type": "string",
+			"enum": ["v1", "v5", "v7"],
+            "description": "The engine to use for text-to-speech."
           },
-          "tag": {
-            "description": "Tag to specify the type",
-            "type": "string"
+          "AppId": {
+            "type": "string",
+			"enum": ["107"],
+            "description": "The application identifier."
+          },
+          "FeatureId": {
+            "type": "string",
+			"enum": ["22"],
+            "description": "The feature identifier."
+          },
+          "speech": {
+            "type": "string",
+            "description": "The input text to convert to speech."
+          },
+          "voice": {
+            "type": "string",
+            "description": "The voice configuration."
+          },
+          "platform": {
+            "type": "string",
+			"enum": ["web","win","mac","phone"],
+            "description": "The platform for which the speech is generated."
+          },
+          "Parameter": {
+            "$ref": "#/components/schemas/TextToSpeechParameter"
           }
         }
       },
-      "NewPlant": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Plant"
-          },
-          {
-            "required": [
-              "id"
-            ],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the plant",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          }
-        ]
-      },
-      "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
+      "TextToSpeechParameter": {
         "type": "object",
         "properties": {
-          "error": {
-            "type": "integer",
-            "format": "int32"
+          "Speed": {
+            "type": "number",
+            "description": "Speed of the speech.",
+			"example": "1.0"
           },
-          "message": {
-            "type": "string"
+          "LanguageCode": {
+            "type": "string",
+            "description": "Input language code."
+          },
+          "Pitch": {
+            "type": "number",
+            "description": "Pitch adjustment for the voice.",
+			"example": "0.0"
           }
         }
-      }
-    },
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer"
       }
     }
   }
