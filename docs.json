@@ -7,7 +7,7 @@
     "light": "#07C983",
     "dark": "#15803D"
   },
-  "favicon": "https://webresources.fineshare.net/web/images/nav-finevoice-logo.svg",
+  "favicon": "images/finevoice-logo-rounded-256.png",
   "navigation": {
     "global": {
       "anchors": [
@@ -90,8 +90,8 @@
     ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/images/finevoice-logo-rounded-256.png",
+    "dark": "/images/finevoice-logo-rounded-256.png"
   },
   "navbar": {
     "links": [
